@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -f /etc/httpd/conf.d/.initialized ]; then
+  # First run
+  tar xvf /tmp/httpd-conf.tgz -C /etc/httpd/conf.d
+fi
+
+if [ ! -f /var/www/.initialized ]; then
+  # First run
+  tar xvf /tmp/www.tgz -C /var/www
+fi
+
+exec /usr/sbin/httpd -f /etc/httpd/conf.d/httpd.conf -DFOREGROUND
+
