@@ -5,7 +5,7 @@ RUN slackpkg -batch=on -default_answer=y install httpd-2.4 apr-util sqlite cyrus
 # COPY httpd-conf.tgz /tmp/
 # COPY www.tgz /tmp/
 # COPY rc.httpd /etc/rc.d/
-COPY myinit.sh /tmp
+COPY myinit.sh /tmp/
 RUN chmod +x /tmp/myinit.sh
 RUN mkdir -p /srv/config /srv/data
 EXPOSE 80 443
