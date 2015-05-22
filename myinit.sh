@@ -1,11 +1,13 @@
 #!/bin/bash
 CONF=/srv/config
 DATA=/srv/data
+LOGS=/srv/log
 
 if [ ! -f ${CONF}/httpd.conf ]; then
   cp -rp /etc/httpd/* ${CONF}
   sed -i -e 's#/etc/httpd#'${CONF}'#' ${CONF}/httpd.conf ${CONF}/extra/*.conf
   sed -i -e 's#/srv/httpd#'${DATA}'#' ${CONF}/httpd.conf ${CONF}/extra/*.conf
+  sed -i -e 's#/var/log/httpd#'${LOGS}'#' ${CONF}/httpd.conf ${CONF}/extra/*.conf
 fi
 
 if [ ! -f ${DATA}/htdocs ]; then
