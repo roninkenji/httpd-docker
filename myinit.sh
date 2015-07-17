@@ -1,7 +1,7 @@
 #!/bin/bash
 CONF=/srv/config
 DATA=/srv/data
-LOGS=/srv/log
+LOGS=/srv/logs
 
 if [ ! -f ${CONF}/httpd.conf ]; then
   cp -rp /etc/httpd/* ${CONF}
