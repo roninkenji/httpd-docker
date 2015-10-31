@@ -6,6 +6,5 @@ RUN mkdir -p /srv/config /srv/data /srv/logs
 COPY myinit.sh /tmp/
 RUN chmod +x /tmp/myinit.sh
 EXPOSE 80 443
-VOLUME ["/srv/data", "/srv/config", "/srv/logs"]
 ENTRYPOINT ["/tmp/myinit.sh"]
 
